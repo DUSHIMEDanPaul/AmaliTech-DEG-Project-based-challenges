@@ -91,7 +91,7 @@ curl -X POST "http://127.0.0.1:8000/process-payment" \
 **Responses:**
 - `201 Created`: Payment processed successfully (or cached successful response).
   - Includes `X-Cache-Hit: true` header if returned from cache.
-  - Body: `{"status": "success", "message": "Charged 100.0 GHS"}`
+  - Body: `{"status": "success", "message": "Charged 100 GHS"}`
 - `400 Bad Request`: Missing `Idempotency-Key` header.
 - `409 Conflict`: The idempotency key was previously used with a different request payload.
   - Body: `{"detail": "Idempotency key already used for a different request body."}`
