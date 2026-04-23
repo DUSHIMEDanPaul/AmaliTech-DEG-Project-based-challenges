@@ -35,8 +35,7 @@ async def process_payment(
     - Duplicate key but different body: Returns 409 Conflict.
     - Concurrent duplicate request: Blocks until the first request completes.
     """
-    # 1. Read and hash the request body
-    body_bytes = await request.body()
+    # 1. Hash the request body
     body_dict = payment_request.model_dump()
     request_hash = compute_body_hash(body_dict)
 
